@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
+<%= render 'tasks/search_form.html.erb' %>
 
 <table>
   <thead>
@@ -8,7 +9,7 @@
       <th>Title</th>
       <th>description</th>
       <th>Status</th>
-      <th>Deadline</th>
+      <th><%= sort_link(@q, :deadline,"Deadline", default_order: :desc)%></th>
       <th colspan="3"></th>
     </tr>
   </thead>

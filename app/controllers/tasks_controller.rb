@@ -3,7 +3,14 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
+    #@q = Task.ransack(status_eq: params[:q][:status]).result.to_sql
+    #@tasks = Task.ransack(status_eq: params[:q][:status]).result.to_sql
+    puts params[:q][:status]
+    if params[:q][:status]
+      @q = Task.ransack(status_eq: params[:q][:status]).result.to_sql
+    end
   end
 
   # GET /tasks/1

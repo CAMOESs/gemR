@@ -1,0 +1,13 @@
+<%= search_form_for @q do |f| %>
+    <%= f.label :title %>
+    <%= f.search_field :title_or_description_cont %>
+    <%= f.label :deadline %>
+    <%= f.date_field :deadline %>
+    ~
+    <%= f.date_field :deadline %>
+    <%= f.label :status %>
+    <%= radio_button_tag 'status','todo' %><%= f.label :todo %>
+    <%= radio_button_tag 'status','doing' %><%= f.label :doing %>
+    <%= radio_button_tag 'status','done' %><%= f.label :done %>
+    <%= f.submit "search"%> 
+<% end %>
