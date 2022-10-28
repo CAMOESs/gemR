@@ -2,9 +2,9 @@
     <%= f.label :title %>
     <%= f.search_field :title_or_description_cont %>
     <%= f.label :deadline %>
-    <%= f.date_field :deadline %>
+    <%= f.date_field :deadline_gteq %>
     ~
-    <%= f.date_field :deadline %>
+    <%= f.date_field :deadline_lteq %>
     <%= f.label :status %>
     <%= radio_button_tag 'status','todo' %><%= f.label :todo %>
     <%= radio_button_tag 'status','doing' %><%= f.label :doing %>
