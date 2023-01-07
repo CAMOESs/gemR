@@ -1,4 +1,5 @@
 <%= search_form_for @q do |f| %>
+    <%= params[:status_eq] %>
     <%= f.label :title %>
     <%= f.search_field :title_or_description_cont %>
     <%= f.label :deadline %>
@@ -6,8 +7,10 @@
     ~
     <%= f.date_field :deadline_lteq %>
     <%= f.label :status %>
-    <%= radio_button_tag 'status','todo' %><%= f.label :todo %>
-    <%= radio_button_tag 'status','doing' %><%= f.label :doing %>
-    <%= radio_button_tag 'status','done' %><%= f.label :done %>
+    
+    <%= radio_button_tag :status_eq,'', checked = true %> 指定なし
+    <%= radio_button_tag :status_eq, 'todo'%> todo
+    <%= radio_button_tag :status_eq,'doing' %> doing 
+    <%= radio_button_tag :status_eq,'done' %> done 
     <%= f.submit "search"%> 
 <% end %>

@@ -1,0 +1,24 @@
+<%= search_form_for @q do |f| %>
+    <%= f.label :title %>
+    <%= f.search_field :title_or_description_cont %>
+    <%= f.label :deadline %>
+    <%= f.date_field :deadline_gteq %>
+    ~
+    <%= f.date_field :deadline_lteq %>
+    <%= f.label :status %>
+    <%= f.label :指定なし %>
+    <%= radio_button_tag :status_eq,'指定なし', checked = true %>
+    <%= f.label :todo %><%= radio_button_tag :status_eq, :todo_cont %><%= f.label :todo %>
+    <%= radio_button_tag :status_eq,'doing' %><%= f.label :doing %>
+    <%= radio_button_tag :status_eq,'done' %><%= f.label :done %>
+
+    <%= f.condition_fields do |c| %>
+        <div class ="field">
+            <%= c.attribute_fields do |a| %>
+                <%=radio_button_tag %>
+            <% end %>
+        </div>
+    <%end %>
+
+    <%= f.submit "search"%> 
+<% end %>
